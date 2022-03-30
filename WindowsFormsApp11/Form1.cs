@@ -16,6 +16,10 @@ namespace WindowsFormsApp11
         {
             InitializeComponent();
         }
-        
+
+        private void addition_Click(object sender, EventArgs e)
+        {
+            //1
+        }
     }
 }

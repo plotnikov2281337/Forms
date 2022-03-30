@@ -73,6 +73,7 @@
             this.addition.TabIndex = 0;
             this.addition.Text = "A + B";
             this.addition.UseVisualStyleBackColor = true;
+            this.addition.Click += new System.EventHandler(this.addition_Click);
             // 
             // subtraction
             // 
