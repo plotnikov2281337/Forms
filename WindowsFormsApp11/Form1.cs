@@ -13,23 +13,37 @@ namespace WindowsFormsApp11
     public partial class Form1 : Form
     {
         private int x, y;
+        Model model = new Model();
+        Controller controller = new Controller();
+                   
         public Form1()
         {
             InitializeComponent();
-
-
-
-
         }
 
         private void addition_Click(object sender, EventArgs e)
         {
-            
+
+            model.MessageEvent += controller.Calculate;
+            int x = dataGridView1.ColumnCount;
+            int y = dataGridView1.RowCount;
+            int[,] matrix1 = new int[x, y];
+            int[,] matrix2 = new int[x, y];
+
+            Arr(dataGridView2, x, y, matrix1);
+            Arr(dataGridView3, x, y, matrix2);
+
+            model.Add2(matrix1, matrix2);
+            controller.Calculate(matrix1);
+            /*
+                        for (int i = 0; i < x; i++)
+                            for (int j = 0; j < y; j++)
+                                dataGridView1[i, j].Value = Add(matrix1[i, j], matrix2[i, j]);*/
 
         }
 
         private void subtraction_Click(object sender, EventArgs e)
-        {
+        {/*
             int x = dataGridView1.ColumnCount;
             int y = dataGridView1.RowCount;
 
@@ -41,7 +55,7 @@ namespace WindowsFormsApp11
 
             for (int i = 0; i < x; i++)
                 for (int j = 0; j < y; j++)
-                    dataGridView1[i, j].Value = Sub(matrix1[i, j], matrix2[i, j]);
+                    dataGridView1[i, j].Value = Sub(matrix1[i, j], matrix2[i, j]);*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -89,18 +103,20 @@ namespace WindowsFormsApp11
 
         }
 
-        private int Sub(int a, int b)
-        {
-            int c = a - b;
-            return c;
-
-        }
-
-        private void Sub2(DataGridView data, int n, int m, int[,] a)
+        private void Arr(DataGridView data, int n, int m, int[,] a)
         {
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < m; j++)
                     a[i, j] = Convert.ToInt32(data[i, j].Value);
         }
+
+        /*private void dataToArray(DataGridView data, int [,] a, int x, int y)
+        {
+            a = new int[x, y];
+            for (int i = 0; i < x; i++)
+                for (int j = 0; j < y; j++)
+                    a[i, j] = int.Parse(data[3, i].Value.ToString());
+
+        }*/
     }
 }
