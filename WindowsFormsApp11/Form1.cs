@@ -16,10 +16,10 @@ namespace WindowsFormsApp11
         public Form1()
         {
             InitializeComponent();
-            
-            
- 
-            
+
+
+
+
         }
 
         private void addition_Click(object sender, EventArgs e)
@@ -37,13 +37,8 @@ namespace WindowsFormsApp11
             int[,] matrix2 = new int[x, y];
             int[,] matrix3 = new int[x, y];
 
-            for (int i = 0; i < x; i++)
-                for (int j = 0; j < y; j++)
-                    matrix1[i, j] = int.Parse (dataGridView2[i, j].Value.ToString());
-
-            for (int i = 0; i < x; i++)
-                for (int j = 0; j < y; j++)
-                    matrix2[i, j] = int.Parse(dataGridView3[i, j].Value.ToString());
+            Sub2(dataGridView2, x, y, matrix1);
+            Sub2(dataGridView3, x, y, matrix2);
 
             for (int i = 0; i < x; i++)
                 for (int j = 0; j < y; j++)
@@ -82,6 +77,8 @@ namespace WindowsFormsApp11
                     data.Columns[j].Width = 50;
                     data.Width = data.Columns[1].Width * data.ColumnCount;
                     data.Height = data.Rows[1].Height * data.RowCount;
+
+
                 }
             }
             
