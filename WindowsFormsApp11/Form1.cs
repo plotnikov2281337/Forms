@@ -37,8 +37,17 @@ namespace WindowsFormsApp11
             int[,] matrix2 = new int[x, y];
             int[,] matrix3 = new int[x, y];
 
-            Sub2(dataGridView2, x, y, matrix1);
-            Sub2(dataGridView3, x, y, matrix2);
+            for (int i = 0; i < x; i++)
+                for (int j = 0; j < y; j++)
+                    matrix1[i, j] = int.Parse (dataGridView2[i, j].Value.ToString());
+
+            for (int i = 0; i < x; i++)
+                for (int j = 0; j < y; j++)
+                    matrix2[i, j] = int.Parse(dataGridView3[i, j].Value.ToString());
+
+            for (int i = 0; i < x; i++)
+                for (int j = 0; j < y; j++)
+                    dataGridView1[i, j].Value = Sub(matrix1[i, j], matrix2[i, j]);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -85,12 +94,12 @@ namespace WindowsFormsApp11
 
         private int Sub(int a, int b)
         {
-            int c = a + b;
+            int c = a - b;
             return c;
 
         }
 
-        private void Sub2(DataGridView data, int m, int n, int[,] a)
+        private void Sub2(DataGridView data, int n, int m, int[,] a)
         {
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < m; j++)
