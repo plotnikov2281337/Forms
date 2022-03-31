@@ -31,11 +31,10 @@ namespace WindowsFormsApp11
         private void subtraction_Click(object sender, EventArgs e)
         {
             int x = dataGridView1.ColumnCount;
-            int y = dataGridView1.RowCount - 1;
+            int y = dataGridView1.RowCount;
 
             int[,] matrix1 = new int[x, y];
             int[,] matrix2 = new int[x, y];
-            int[,] matrix3 = new int[x, y];
 
             Sub2(dataGridView2, x, y, matrix1);
             Sub2(dataGridView3, x, y, matrix2);
@@ -75,8 +74,9 @@ namespace WindowsFormsApp11
                     
                     
                     data.Columns[j].Width = 50;
-                    data.Width = data.Columns[1].Width * data.ColumnCount;
-                    data.Height = data.Rows[1].Height * data.RowCount;
+                    data.Width = data.Columns[1].Width * data.ColumnCount + 1;
+                    data.Height = data.Rows[1].Height * data.RowCount + 1;
+                    data.BorderStyle = BorderStyle.None;
 
 
                 }
