@@ -5,13 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WindowsFormsApp11
-{
-    internal class Controller
+{    
+     
+    class Controller
     {
-        /*private Model model;
-        public void CalculateSumm(int[,] matrix1, int[,] matrix2)
+        private Model model;
+        public delegate void Delegatte(int[,] matrix1, int[,] matrix2);
+        public event Delegatte DelegatteEvent;
+        public void CalculateAdd(int[,] matrix1, int[,] matrix2)
         {
-            model.sum(matrix1, matrix2);
-        }*/
+            model(matrix1, matrix2);
+        }
+
+        public void CalculateSub(int[,] matrix1, int[,] matrix2)
+        {
+            model(matrix1, matrix2);
+        }
     }
 }
