@@ -16,8 +16,7 @@ namespace WindowsFormsApp11
         public Form1()
         {
             InitializeComponent();
-            /*int[,] matrix = new int [4, 4];*/
-            //matrix[0, 0] =int.Parse(dataGridView1[0,0].Value.ToString());
+            
             
  
             
@@ -25,7 +24,8 @@ namespace WindowsFormsApp11
 
         private void addition_Click(object sender, EventArgs e)
         {
-           
+            //int[,] matrix = new int [4, 4];
+            //matrix[0, 0] =int.Parse(dataGridView1[0,0].Value.ToString());
 
         }
 
@@ -41,6 +41,7 @@ namespace WindowsFormsApp11
             InitDataGrid(dataGridView2, x, y);
             InitDataGrid(dataGridView3, x, y);
             InitDataGrid(dataGridView1, x, y);
+            
         }
 
         private void InitDataGrid(DataGridView data, int x, int y)
@@ -53,8 +54,11 @@ namespace WindowsFormsApp11
             {
                 for ( int j = 0; j < y; j++)
                 {
+                    
+                    
                     data.Columns[j].Width = 50;
-                    data.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    data.Width = data.Columns[1].Width * data.ColumnCount;
+                    data.Height = data.Rows[1].Height * data.RowCount;
                 }
             }
             
