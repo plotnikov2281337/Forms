@@ -24,14 +24,21 @@ namespace WindowsFormsApp11
 
         private void addition_Click(object sender, EventArgs e)
         {
-            //int[,] matrix = new int [4, 4];
-            //matrix[0, 0] =int.Parse(dataGridView1[0,0].Value.ToString());
+            
 
         }
 
         private void subtraction_Click(object sender, EventArgs e)
         {
+            int x = dataGridView1.ColumnCount;
+            int y = dataGridView1.RowCount - 1;
 
+            int[,] matrix1 = new int[x, y];
+            int[,] matrix2 = new int[x, y];
+            int[,] matrix3 = new int[x, y];
+
+            Sub2(dataGridView2, x, y, matrix1);
+            Sub2(dataGridView3, x, y, matrix2);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +48,13 @@ namespace WindowsFormsApp11
             InitDataGrid(dataGridView2, x, y);
             InitDataGrid(dataGridView3, x, y);
             InitDataGrid(dataGridView1, x, y);
+
+            
+
+            /*matrix1[x, y] =int.Parse(dataGridView2[x, y].Value.ToString());
+            matrix2[x, y] =int.Parse(dataGridView2[x, y].Value.ToString());
+            matrix3[x, y] =int.Parse(dataGridView2[x, y].Value.ToString());*/
+
             
         }
 
@@ -64,5 +78,23 @@ namespace WindowsFormsApp11
             
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private int Sub(int a, int b)
+        {
+            int c = a + b;
+            return c;
+
+        }
+
+        private void Sub2(DataGridView data, int m, int n, int[,] a)
+        {
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < m; j++)
+                    a[i, j] = Convert.ToInt32(data[i, j].Value);
+        }
     }
 }
